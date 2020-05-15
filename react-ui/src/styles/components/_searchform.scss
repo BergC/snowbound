@@ -1,8 +1,21 @@
-.form {
-    width: 45rem;
+.form-row {
+    padding: 0.8rem 0;
 }
 
-.search-form__location {
+.search-form__container {
+    // padding: 2.8rem 3rem;
+    margin: 3.5rem auto;
+    max-width: 45rem;
+}
+
+.search-form__group--flexspace {
     display: flex;
     justify-content: space-between;
+}
+
+.search-form__group--flexeven {
+    border-top: 1px solid lighten(#292b2c, 40%);
+    border-bottom: 1px solid lighten(#292b2c, 40%);
+    display: flex;
+    justify-content: space-evenly;
 }
