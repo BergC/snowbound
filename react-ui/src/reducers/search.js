@@ -1,5 +1,14 @@
 const initialState = {
-    test: 'none',
+    address: {
+        street: '',
+        city: '',
+        state: '',
+        zip: '',
+    },
+    criteria: {
+        filter: '',
+        upperBound: '',
+    },
 };
 
 export default function (state = initialState, action) {

@@ -3,6 +3,11 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
 
 const SearchForm = () => {
     return (
@@ -13,7 +18,20 @@ const SearchForm = () => {
                 </h2>
                 <Form>
                     <Form.Row controlId='formGridAddress1'>
-                        <Form.Label>Street Address</Form.Label>
+                        <OverlayTrigger
+                            placement='right'
+                            overlay={
+                                <Tooltip className='search-form__tooltip'>
+                                    Input the address that you'll be travelling
+                                    to the mountains from.
+                                </Tooltip>
+                            }
+                        >
+                            <Form.Label>
+                                <FontAwesomeIcon icon={faQuestionCircle} />{' '}
+                                Street Address
+                            </Form.Label>
+                        </OverlayTrigger>
                         <Form.Control placeholder='1234 Main St' />
                     </Form.Row>
 
@@ -39,7 +57,22 @@ const SearchForm = () => {
 
                     <Form.Row className='search-form__group--flexeven'>
                         <Form.Group controlId='formGridTravelCriteria'>
-                            <Form.Label>Travel Criteria</Form.Label>
+                            <OverlayTrigger
+                                placement='right'
+                                overlay={
+                                    <Tooltip className='search-form__tooltip'>
+                                        Dictate whether search results are
+                                        filtered by distance from current
+                                        location or travel time from current
+                                        location.
+                                    </Tooltip>
+                                }
+                            >
+                                <Form.Label>
+                                    <FontAwesomeIcon icon={faQuestionCircle} />{' '}
+                                    Travel Criteria
+                                </Form.Label>
+                            </OverlayTrigger>
                             <Form.Control as='select' value='Choose...'>
                                 <option>Choose...</option>
                                 <option>Distance</option>
@@ -48,7 +81,20 @@ const SearchForm = () => {
                         </Form.Group>
 
                         <Form.Group controlId='formGridMaxTravel'>
-                            <Form.Label>Max Travel</Form.Label>
+                            <OverlayTrigger
+                                placement='right'
+                                overlay={
+                                    <Tooltip className='search-form__tooltip'>
+                                        Input maximum number of miles or amount
+                                        of time you're willing to travel.
+                                    </Tooltip>
+                                }
+                            >
+                                <Form.Label>
+                                    <FontAwesomeIcon icon={faQuestionCircle} />{' '}
+                                    Max Travel
+                                </Form.Label>
+                            </OverlayTrigger>
                             <Form.Control />
                         </Form.Group>
                     </Form.Row>
