@@ -17,6 +17,7 @@ const App = () => (
     <Provider store={store}>
         <NavigationBar />
         <BigHero />
+
         <SearchForm />
         <Footer />
     </Provider>

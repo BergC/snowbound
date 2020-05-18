@@ -1,0 +1,2 @@
+export const SEARCH_MOUNTAINS = 'SEARCH_MOUNTAINS';
+export const SET_LOADING = 'SET_LOADING';

@@ -5,6 +5,14 @@ body {
     bottom: 0;
     margin: 0;
     padding: 0;
+    width: 100%;
+}
+
+.flex-wrapper {
+    min-height: calc(100vh - 8rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .section__header {
