@@ -1,15 +1,23 @@
+// Core libraries
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
+// Bootstrap
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 
+// Font awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
 
-const SearchForm = () => {
+// Custom functions
+import { searchMountains } from '../actions/search';
+
+const SearchForm = ({ loading, searchMountains }) => {
     const [formData, setFormData] = useState({
         address: {
             street: '',
@@ -40,18 +48,35 @@ const SearchForm = () => {
         // console.log(e.target.name);
     };
 
+    const onSubmit = (e) => {
+        e.preventDefault();
+
+        let formDataFormatted = {
+            mountainState: 'washington',
+            upperBound: formData.search.max.toLowerCase(),
+            filterBy: formData.search.filter.toLowerCase(),
+        };
+
+        let formatteddAddress = Object.values(formData.address).map(
+            (addressItem) => {
+                return addressItem.trim().toLowerCase();
+            }
+        );
+
+        formDataFormatted.address = formatteddAddress.join(' ');
+
+        console.log(formDataFormatted);
+        // console.log('hello');
+        searchMountains(formDataFormatted);
+    };
+
     return (
         <Container>
             <div className='search-form__container'>
                 <h2 className='section__header'>
                     Input search criteria here . . .
                 </h2>
-                <Form
-                    onSubmit={(e) => {
-                        e.preventDefault();
-                        console.log(formData);
-                    }}
-                >
+                <Form onSubmit={(e) => onSubmit(e)}>
                     <Form.Row controlId='formGridAddress1'>
                         <OverlayTrigger
                             placement='right'
@@ -71,6 +96,7 @@ const SearchForm = () => {
                             onChange={(e) => onChange(e)}
                             placeholder='1234 Main St'
                             name='address_street'
+                            required={true}
                         />
                     </Form.Row>
 
@@ -80,6 +106,7 @@ const SearchForm = () => {
                             <Form.Control
                                 name='address_city'
                                 onChange={(e) => onChange(e)}
+                                required={true}
                             />
                         </Form.Group>
 
@@ -90,9 +117,10 @@ const SearchForm = () => {
                                 as='select'
                                 value={state}
                                 name='address_state'
+                                required={true}
                             >
                                 <option>Choose...</option>
-                                <option>Washington</option>
+                                <option>WA</option>
                             </Form.Control>
                         </Form.Group>
 
@@ -101,6 +129,7 @@ const SearchForm = () => {
                             <Form.Control
                                 name='address_zip'
                                 onChange={(e) => onChange(e)}
+                                required={true}
                             />
                         </Form.Group>
                     </Form.Row>
@@ -127,6 +156,7 @@ const SearchForm = () => {
                                 name='search_filter'
                                 onChange={(e) => onChange(e)}
                                 as='select'
+                                required={true}
                                 value={filterBy}
                             >
                                 <option>Choose...</option>
@@ -153,6 +183,7 @@ const SearchForm = () => {
                             <Form.Control
                                 name='search_max'
                                 onChange={(e) => onChange(e)}
+                                required={true}
                             />
                         </Form.Group>
                     </Form.Row>
@@ -168,4 +199,12 @@ const SearchForm = () => {
     );
 };
 
-export default SearchForm;
+SearchForm.propTypes = {
+    searchMountains: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+    loading: state.search.loading,
+});
+
+export default connect(mapStateToProps, { searchMountains })(SearchForm);

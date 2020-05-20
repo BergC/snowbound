@@ -5,6 +5,7 @@ import BigHero from './components/BigHero';
 import Footer from './components/Footer';
 import NavigationBar from './components/NavigationBar';
 import SearchForm from './components/SearchForm';
+import SearchOutput from './components/SearchOutput';
 
 // Redux
 import { Provider } from 'react-redux';
@@ -19,6 +20,7 @@ const App = () => (
         <BigHero />
 
         <SearchForm />
+        <SearchOutput />
         <Footer />
     </Provider>
 );
