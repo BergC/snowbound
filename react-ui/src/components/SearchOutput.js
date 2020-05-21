@@ -9,8 +9,12 @@ import CardDeck from 'react-bootstrap/CardDeck';
 import Container from 'react-bootstrap/Container';
 
 const SearchOutput = ({ searchResults }) => {
+    // Function to capitalize each mountain name as they're stored in lowercase.
     const capitalizeWord = (str) => {
-        return str.charAt(0).toUpperCase() + str.slice(1);
+        return str
+            .split(' ')
+            .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(' ');
     };
 
     // Function to iterate over daily forecast for each mountain and build forecast columns.
@@ -63,7 +67,7 @@ const SearchOutput = ({ searchResults }) => {
                                             variant='link'
                                             eventKey={index}
                                         >
-                                            {mountain.name}
+                                            {capitalizeWord(mountain.name)}
                                         </Accordion.Toggle>
                                     </Card.Header>
                                     <Accordion.Collapse eventKey={index}>
@@ -73,14 +77,18 @@ const SearchOutput = ({ searchResults }) => {
                                                     Basic Info
                                                 </Card.Title>
                                                 <Card.Text>
-                                                    {mountain.name} is{' '}
+                                                    {capitalizeWord(
+                                                        mountain.name
+                                                    )}{' '}
+                                                    is{' '}
                                                     {
                                                         mountain.distance.text.split(
                                                             ' '
                                                         )[0]
                                                     }{' '}
                                                     miles from your current
-                                                    location and is expected to{' '}
+                                                    location where it's expected
+                                                    to{' '}
                                                     {
                                                         mountain.forecast[0]
                                                             .precip
