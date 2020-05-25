@@ -3,14 +3,9 @@ import { SET_LOADING, SEARCH_MOUNTAINS } from './types';
 
 // Fire off the API post request.
 export const searchMountains = (formData) => async (dispatch) => {
-    // dispatch({
-    //     type: SEARCH_MOUNTAINS,
-    //     payload: 'test',
-    // });
-
-    // dispatch({
-    //     type: SET_LOADING,
-    // });
+    dispatch({
+        type: SET_LOADING,
+    });
 
     try {
         const config = {

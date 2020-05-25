@@ -10,7 +10,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import ContactModal from './ContactModal';
 
 const NavigationBar = () => {
-    const [showModal, toggleShowModal] = useState(true);
+    const [showModal, toggleShowModal] = useState(false);
 
     return (
         <Navbar collapseOnSelect expand='lg' bg='dark' variant='dark'>

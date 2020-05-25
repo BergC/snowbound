@@ -71,9 +71,9 @@ const SearchForm = ({ loading, searchMountains }) => {
     };
 
     return (
-        <Container>
+        <Container className='container--content'>
             <div className='search-form__container'>
-                <h2 className='section__header'>
+                <h2 className='section-header'>
                     Input search criteria here . . .
                 </h2>
                 <Form onSubmit={(e) => onSubmit(e)}>
@@ -189,8 +189,12 @@ const SearchForm = ({ loading, searchMountains }) => {
                     </Form.Row>
 
                     <div id='search-button'>
-                        <Button variant='outline-primary' type='submit'>
-                            Search
+                        <Button
+                            variant='outline-primary'
+                            type='submit'
+                            disabled={!!loading}
+                        >
+                            {loading ? 'Loading...' : 'Search'}
                         </Button>
                     </div>
                 </Form>
