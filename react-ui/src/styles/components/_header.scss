@@ -3,4 +3,9 @@
     margin-top: 0;
     padding: 0;
     text-align: center;
+
+    @media (max-width: $smallScreen) {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
 }

@@ -1,15 +1,16 @@
 // Import base settings
 @import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+@import './styles/base/settings';
 @import './styles/base/base';
-@import './styles/base/header';
-@import './styles/base/container';
 
 // Import component styles
 @import './styles/components/about';
 @import './styles/components/bighero';
 @import './styles/components/buttons';
 @import './styles/components/contactmodal';
+@import './styles/components/container';
 @import './styles/components/footer';
+@import './styles/components/header';
 @import './styles/components/navigationbar';
 @import './styles/components/searchform';
 @import './styles/components/searchoutput';

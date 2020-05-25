@@ -8,6 +8,10 @@
     margin: 0;
     text-align: center;
     width: 100%;
+
+    @media (max-width: $smallScreen) {
+        height: auto;
+    }
 }
 
 #footer__list {
@@ -16,10 +20,18 @@
     list-style: none;
     margin: 0;
     padding: 0;
+
+    @media (max-width: $smallScreen) {
+        display: block;
+    }
 }
 
 .footer__list-item {
     margin: 0 2rem;
+
+    @media (max-width: $smallScreen) {
+        margin: 0.5rem;
+    }
 }
 
 .footer__list-item a:hover {
@@ -33,4 +45,8 @@
 
 #footer__copyright {
     color: white;
+
+    @media (max-width: $smallScreen) {
+        margin-bottom: 0.5rem;
+    }
 }

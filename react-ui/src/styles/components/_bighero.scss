@@ -1,5 +1,5 @@
 .carousel {
-    border-bottom: 0.4rem solid #292b2c;
+    border-bottom: 0.4rem solid $mainGray;
 }
 
 .carousel-caption {
@@ -9,10 +9,18 @@
     font-weight: 500;
     top: 50%;
     transform: translateY(-50%);
+
+    @media (max-width: $smallScreen) {
+        font-size: 1rem;
+    }
 }
 
 .carousel-caption h3 {
     font-size: 2.4rem;
+
+    @media (max-width: $smallScreen) {
+        font-size: 1.5rem;
+    }
 }
 
 .carousel-item img {
