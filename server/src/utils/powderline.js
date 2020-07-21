@@ -42,13 +42,21 @@ const snowQuality = async (qualifiedMountains) => {
             }
 
             // console.log(data);
-            snowQuality.push({
-                ...qualifiedMountains[x],
-                snowQuality: data,
-            });
+            if (data.length > 1) {
+                snowQuality.push({
+                    ...qualifiedMountains[x],
+                    snowQuality: data[0],
+                });
+            } else {
+                snowQuality.push({
+                    ...qualifiedMountains[x],
+                    snowQuality: data,
+                });
+            }
         }
 
         // console.log(snowQuality[0]);
+        console.log(snowQuality);
         return snowQuality;
     } catch (error) {
         console.error(error);
@@ -65,7 +73,8 @@ const snowQuality = async (qualifiedMountains) => {
     }
 };
 
-// snowQuality([{ longitude: '-121.474732', latitude: '46.935392' }]);
+snowQuality([{ longitude: '-121.474732', latitude: '46.935392' }]);
+snowQuality([{ longitude: '-121.413504', latitude: '47.410233' }]);
 
 module.exports = {
     snowQuality,

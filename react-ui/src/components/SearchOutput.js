@@ -55,6 +55,8 @@ const SearchOutput = ({ searchResults }) => {
 
     // Build snow quality for each mountain in the search range.
     const buildSnowQuality = (snowQuality) => {
+        console.log(snowQuality);
+
         return (
             <CardDeck>
                 {snowQuality.data.map((dailySnow, index) => {
@@ -68,8 +70,10 @@ const SearchOutput = ({ searchResults }) => {
                                 </Card.Title>
                                 <Card.Text>
                                     Snow depth was{' '}
-                                    {dailySnow['Snow Depth (in)']} inches,
-                                    representing a{' '}
+                                    {dailySnow['Snow Depth (in)'] == null
+                                        ? 0
+                                        : dailySnow['Snow Depth (in)']}{' '}
+                                    inches, representing a{' '}
                                     {dailySnow['Change In Snow Depth (in)']}{' '}
                                     inch change over the last 24 hours.
                                 </Card.Text>
