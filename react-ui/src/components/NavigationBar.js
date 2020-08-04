@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-scroll';
 
 // React Bootstrap
 import Container from 'react-bootstrap/Container';
@@ -48,7 +49,16 @@ const NavigationBar = () => {
                                 Dark Sky Weather
                             </NavDropdown.Item>
                         </NavDropdown>
-                        <Nav.Link href='#pricing'>About</Nav.Link>
+                        <Nav.Link>
+                            <Link
+                                to='about'
+                                smooth={true}
+                                duration={500}
+                                offset={-50}
+                            >
+                                About
+                            </Link>
+                        </Nav.Link>
                         <Nav.Link onClick={() => toggleShowModal(true)}>
                             Contact
                         </Nav.Link>

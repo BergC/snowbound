@@ -1,11 +1,14 @@
 import React from 'react';
+import { Element } from 'react-scroll';
 
 import Container from 'react-bootstrap/Container';
 
 const About = () => {
     return (
         <Container className='container--content about'>
-            <h2 className='section-header'>About . . .</h2>
+            <h2 className='section-header'>
+                <Element name='about'>About . . .</Element>
+            </h2>
             <p>
                 There's nothing worse than spending a day with 3 inches of fresh
                 snow and 30 minute lift lines before receiving a text from a
