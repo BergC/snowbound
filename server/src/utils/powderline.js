@@ -56,7 +56,7 @@ const snowQuality = async (qualifiedMountains) => {
         }
 
         // console.log(snowQuality[0]);
-        console.log(snowQuality);
+        // console.log(snowQuality);
         return snowQuality;
     } catch (error) {
         console.error(error);

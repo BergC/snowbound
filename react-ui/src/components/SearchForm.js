@@ -140,10 +140,9 @@ const SearchForm = ({ loading, searchMountains }) => {
                                 placement='right'
                                 overlay={
                                     <Tooltip className='search-form__tooltip'>
-                                        Dictate whether search results are
-                                        filtered by distance from current
-                                        location or travel time from current
-                                        location.
+                                        Dictate what search results are filtered
+                                        by. Currently only distance is
+                                        available.
                                     </Tooltip>
                                 }
                             >
@@ -161,7 +160,6 @@ const SearchForm = ({ loading, searchMountains }) => {
                             >
                                 <option>Choose...</option>
                                 <option>Distance</option>
-                                <option>Duration</option>
                             </Form.Control>
                         </Form.Group>
 
@@ -170,8 +168,8 @@ const SearchForm = ({ loading, searchMountains }) => {
                                 placement='right'
                                 overlay={
                                     <Tooltip className='search-form__tooltip'>
-                                        Input maximum number of miles or amount
-                                        of time you're willing to travel.
+                                        Input maximum number of miles you're
+                                        willing to travel.
                                     </Tooltip>
                                 }
                             >
@@ -183,8 +181,10 @@ const SearchForm = ({ loading, searchMountains }) => {
                             <Form.Control
                                 name='search_max'
                                 onChange={(e) => onChange(e)}
+                                placeholder='e.g. 100'
                                 required={true}
-                            />
+                                type='number'
+                            />{' '}
                         </Form.Group>
                     </Form.Row>
 
