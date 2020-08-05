@@ -18,6 +18,7 @@ import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
 import { searchMountains } from '../actions/search';
 
 const SearchForm = ({ loading, searchMountains }) => {
+    // State used for search query.
     const [formData, setFormData] = useState({
         address: {
             street: '',
@@ -83,7 +84,8 @@ const SearchForm = ({ loading, searchMountains }) => {
                             overlay={
                                 <Tooltip className='search-form__tooltip'>
                                     Input the address that you'll be travelling
-                                    to the mountains from.
+                                    to the mountains from. Currently only
+                                    available in Western Washington.
                                 </Tooltip>
                             }
                         >
@@ -119,7 +121,6 @@ const SearchForm = ({ loading, searchMountains }) => {
                                 name='address_state'
                                 required={true}
                             >
-                                <option>Choose...</option>
                                 <option>WA</option>
                             </Form.Control>
                         </Form.Group>
@@ -158,7 +159,6 @@ const SearchForm = ({ loading, searchMountains }) => {
                                 required={true}
                                 value={filterBy}
                             >
-                                <option>Choose...</option>
                                 <option>Distance</option>
                             </Form.Control>
                         </Form.Group>
