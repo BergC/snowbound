@@ -2,18 +2,19 @@ require('dotenv').config();
 
 const mongoose = require('mongoose');
 
-if (process.env.NODE_ENV !== 'production') {
-    const mongoURI = process.env.MONGODB_URI;
-}
-
 const connectDB = async () => {
     try {
-        await mongoose.connect(process.env.DB_URI || mongoURI, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-            useCreateIndex: true,
-            useFindAndModify: false,
-        });
+        await mongoose.connect(
+            process.env.NODE_ENV === 'production'
+                ? process.env.DB_URI
+                : process.env.MONGODB_URI,
+            {
+                useNewUrlParser: true,
+                useUnifiedTopology: true,
+                useCreateIndex: true,
+                useFindAndModify: false,
+            }
+        );
 
         console.log('MongoDB Connected');
     } catch (err) {
