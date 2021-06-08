@@ -96,7 +96,7 @@ const SearchForm = ({ loading, searchMountains }) => {
                         </OverlayTrigger>
                         <Form.Control
                             onChange={(e) => onChange(e)}
-                            placeholder='1234 Main St'
+                            placeholder='Currently only works for Western WA addresses'
                             name='address_street'
                             required={true}
                         />
